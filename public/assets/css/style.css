@@ -8,6 +8,12 @@ Last change: 26 November 2023
 Primary use: Multipurpose Template  
 -------------------------------------------------------------------*/
 
+.recaptcha-border {
+  border: 1px solid red;
+  border-radius: 5px;
+  width: 100%;
+  margin-bottom: 10px;
+}
 /*------------------------------------------------------------------
 [Table of contents]
 
@@ -288,21 +294,20 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
 }
-.mainHeading{
-font-weight: 900;
-font-size: 2rem;
+.mainHeading {
+  font-weight: 900;
+  font-size: 2rem;
 }
-.heading{
+.heading {
   font-weight: 600;
   font-size: 1rem;
-
 }
 .custom {
   display: flex;
   margin: auto;
   align-items: center;
   justify-content: center;
-  margin-bottom : 50px;
+  margin-bottom: 50px;
 }
 
 main {

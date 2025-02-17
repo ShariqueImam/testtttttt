@@ -10,10 +10,10 @@ import ReCAPTCHA from "react-google-recaptcha";
 export default function Contact() {
   const [isSent, setisSent] = useState(false);
   const [isClicked, setisClicked] = useState(false);
+  const [ReCaptcha, setReCaptcha] = useState(false);
   const [Name, setName] = useState("");
   const [Email, setEmail] = useState("");
   const [Message, setMessage] = useState("");
-  const [ReCaptcha, setReCaptcha] = useState("");
   const SITE_KEY = "6Ldpu9kqAAAAAKxCVasHYkLky0htejzZusSVM8jz";
   const SECRET_KEY = "6Ldpu9kqAAAAAPXDL9fXRYPj3qFWfFbCluEBqJiq";
   const captchaRef = useRef(null);
@@ -89,9 +89,10 @@ export default function Contact() {
           }
         );
     };
-    if (Name != "" && Email != "" && Message != "") {
+    if (Name != "" && Email != "" && Message != "" && ReCaptcha) {
       sendData();
       sendEmail();
+      // console.log("DATA SENT");
       setName("");
       setEmail("");
       setMessage("");
@@ -235,8 +236,8 @@ export default function Contact() {
                 sitekey={SITE_KEY}
                 ref={captchaRef}
                 onChange={handleChanges}
-                className={`mx-auto my-5 md:my-6  p-2 ${
-                  isClicked && "border-2 border-red-300"
+                className={`my-5 md:my-6 p-2 ${
+                  isClicked && !ReCaptcha && "recaptcha-border "
                 }`}
               />{" "}
             </div>
@@ -258,6 +259,7 @@ export default function Contact() {
                     id="submit_btn"
                     aria-controls="result"
                     className="submit_btn btn btn-mod btn-white btn-large btn-round btn-hover-anim align-middle"
+                    onClick={() => setisClicked(true)}
                   >
                     <span> Send Message </span>
                   </button>
