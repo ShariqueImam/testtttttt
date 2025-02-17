@@ -14,8 +14,8 @@ export default function Contact() {
   const [Email, setEmail] = useState("");
   const [Message, setMessage] = useState("");
   const [ReCaptcha, setReCaptcha] = useState("");
-  const SITE_KEY = "6Le0fwcnAAAAAL3H--B_C0On3uzb0QxJWjUDSw7h";
-  const SECRET_KEY = "6Le0fwcnAAAAAFO1KOYlF_NgsYIz5pGmFFooHD1b";
+  const SITE_KEY = "6Ldpu9kqAAAAAKxCVasHYkLky0htejzZusSVM8jz";
+  const SECRET_KEY = "6Ldpu9kqAAAAAPXDL9fXRYPj3qFWfFbCluEBqJiq";
   const captchaRef = useRef(null);
   const handleChanges = () => {
     setReCaptcha(true);
