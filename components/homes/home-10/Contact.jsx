@@ -5,20 +5,21 @@ import { InlineWidget } from "react-calendly";
 import Image from "next/image";
 import axios from "axios";
 import emailjs from "@emailjs/browser";
-// import ReCAPTCHA from "react-google-recaptcha";
+import ReCAPTCHA from "react-google-recaptcha";
 
 export default function Contact() {
-  const SITE_KEY = "6Le0fwcnAAAAAL3H--B_C0On3uzb0QxJWjUDSw7h";
-  const SECRET_KEY = "6Le0fwcnAAAAAFO1KOYlF_NgsYIz5pGmFFooHD1b";
-  const captchaRef = useRef(null);
-  const handleChanges = () => {
-    // setRecaptcha(true);
-  };
   const [isSent, setisSent] = useState(false);
   const [isClicked, setisClicked] = useState(false);
   const [Name, setName] = useState("");
   const [Email, setEmail] = useState("");
   const [Message, setMessage] = useState("");
+  const [ReCaptcha, setReCaptcha] = useState("");
+  const SITE_KEY = "6Le0fwcnAAAAAL3H--B_C0On3uzb0QxJWjUDSw7h";
+  const SECRET_KEY = "6Le0fwcnAAAAAFO1KOYlF_NgsYIz5pGmFFooHD1b";
+  const captchaRef = useRef(null);
+  const handleChanges = () => {
+    setReCaptcha(true);
+  };
 
   const nameChangeHandler = (e) => {
     setName(e.target.value);
@@ -229,7 +230,7 @@ export default function Contact() {
               </p>
             )}
 
-            {/* <div className="flex items-center justify-center row">
+            <div className="flex items-center justify-center row">
               <ReCAPTCHA
                 sitekey={SITE_KEY}
                 ref={captchaRef}
@@ -238,7 +239,7 @@ export default function Contact() {
                   isClicked && "border-2 border-red-300"
                 }`}
               />{" "}
-            </div> */}
+            </div>
             <div className="row">
               <div className="col-sm-6">
                 {/* Inform Tip */}
